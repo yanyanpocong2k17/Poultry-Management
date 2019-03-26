@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2019 at 04:22 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Mar 11, 2019 at 09:06 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,7 +43,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `userid`, `lastname`, `firstname`, `middlename`, `contactno`, `address`) VALUES
-(5, 11, 'ad', 'ad', 'asd', 12, '12');
+(5, 11, 'ad', 'ad', 'asd', 12, '12'),
+(6, 15, 'ad', 'ad', 'qd', 2147483647, 'qwe');
 
 -- --------------------------------------------------------
 
@@ -62,8 +65,7 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`flocksid`, `userid`, `breed`, `rooster`, `hen`) VALUES
-(4, 15, '1', 2, 2),
-(5, 15, '2', 2, 2);
+(7, 15, 'wolohano', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,7 @@ CREATE TABLE `feeds` (
 --
 
 INSERT INTO `feeds` (`id`, `userid`, `types`, `quality`, `unit`, `timestamp`, `price`) VALUES
-(4, 15, '1ada', 12, 12, '2019-02-26', 12);
+(5, 15, 'da', 2, 2, '2017-06-01', 23);
 
 -- --------------------------------------------------------
 
@@ -120,19 +122,17 @@ CREATE TABLE `medication` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `type` varchar(250) NOT NULL,
-  `timestamp` date NOT NULL,
+  `timestamp` datetime NOT NULL,
   `amout` int(11) NOT NULL,
-  `flocksid` int(11) NOT NULL
+  `breed` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `medication`
 --
 
-INSERT INTO `medication` (`id`, `userid`, `type`, `timestamp`, `amout`, `flocksid`) VALUES
-(1, 15, '1', '2019-02-27', 2, 5),
-(2, 15, 'a', '2019-02-27', 12, 5),
-(3, 15, 'ad', '2019-02-19', 1, 5);
+INSERT INTO `medication` (`id`, `userid`, `type`, `timestamp`, `amout`, `breed`) VALUES
+(2, 15, '2', '2017-06-01 08:30:00', 2, 'wolohano');
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 (11, '2', '2', 'b6d767d2f8ed5d21a44b0e5886680cb9'),
-(15, '1', '1', '6512bd43d9caa6e02c990b0a82652dca');
+(15, '1', '1', '6512bd43d9caa6e02c990b0a82652dca'),
+(16, 'yanyan', 'yanyan', '7219b9b60d9d70a9a7014369d88ebefe'),
+(17, 'adad', 'yanyanpocong@gmail.com', '7219b9b60d9d70a9a7014369d88ebefe'),
+(18, '1', '1', '6512bd43d9caa6e02c990b0a82652dca');
 
 --
 -- Indexes for dumped tables
@@ -236,37 +239,44 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `flocksid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `flocksid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `feeds`
 --
 ALTER TABLE `feeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- Constraints for dumped tables
 --
@@ -306,6 +316,7 @@ ALTER TABLE `medication`
 --
 ALTER TABLE `sale`
   ADD CONSTRAINT `sale_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

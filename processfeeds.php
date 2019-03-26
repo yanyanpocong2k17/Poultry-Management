@@ -23,6 +23,7 @@ if(isset($_POST['save'])){
 	$timestamp = $_POST['timestamp'];
 	$price = $_POST['price'];
 	$username= $_SESSION["username"];
+	$flocks = $_POST['flocksid'];
 	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
 	if(@count($result)==1)
 	{
@@ -31,7 +32,7 @@ if(isset($_POST['save'])){
 
 	}
 
-	$mysqli->query("INSERT INTO feeds (userid,types,quality,unit,timestamp,price) VALUES ('$userid','$types','$quality','$unit','$timestamp','$price')") or
+	$mysqli->query("INSERT INTO feeds (userid,flocksid,types,quality,unit,timestamp,price) VALUES ($userid,$flocks,'$types',$quality,$unit,'$timestamp',$price)") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -61,6 +62,7 @@ if(isset($_GET['edit'])){
 		$unit = $row['unit'];
 		$timestamp = $row['timestamp'];
 		$price = $row['price'];
+		$flocksid = $row['flocksid'];
 		
 	}
 }

@@ -27,7 +27,7 @@ if(isset($_POST['save'])){
 
 	}
 
-	$mysqli->query("INSERT INTO data (userid,breed,rooster,hen) VALUES ('$userid','$breed','$rooster','$hen')") or
+	$mysqli->query("INSERT INTO flocks (userid,breed,rooster,hen) VALUES ('$userid','$breed','$rooster','$hen')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -37,7 +37,7 @@ if(isset($_POST['save'])){
 }
 if(isset($_GET['delete'])){
 	$flocksid =$_GET['delete'];
-	$mysqli->query("DELETE FROM data WHERE flocksid=$flocksid") or die($mysqli->error());
+	$mysqli->query("DELETE FROM flocks WHERE flocksid=$flocksid") or die($mysqli->error());
 	
 	$_SESSION['message'] = "Record has been deleted!";
 	$_SESSION['msg_type'] = "danger";
@@ -49,7 +49,7 @@ if(isset($_GET['delete'])){
 if(isset($_GET['edit'])){
 	$flocksid = $_GET['edit'];
 	$update =true;
-	$result = $mysqli->query("SELECT * FROM data WHERE flocksid=$flocksid") or die($mysqli->error);
+	$result = $mysqli->query("SELECT * FROM flocks WHERE flocksid=$flocksid") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
 		$breed = $row['breed'];
@@ -66,7 +66,7 @@ if(isset($_POST['update'])){
 	$hen = $_POST['hen'];
 	
 	
-	$mysqli->query("UPDATE data SET breed='$breed',rooster='$rooster',hen='$hen' WHERE flocksid=$flocksid") or die($mysqli->error);
+	$mysqli->query("UPDATE flocsks SET breed='$breed',rooster='$rooster',hen='$hen' WHERE flocksid=$flocksid") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

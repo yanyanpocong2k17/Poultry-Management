@@ -60,9 +60,9 @@
 	
 	if (count($errors) == 0){
 		$password = md5($password);
-		$query = " SELECT * FROM user WHERE username='$username' AND password='$password'";
+		$query = " SELECT * FROM users WHERE username='$username' AND password='$password'";
 		$result = mysqli_query($db, $query);
-		if (mysqli_num_rows($result) == 0){
+		if (mysqli_num_rows($result) > 0){
 			
 			$_SESSION['username'] = $username;
 		    $_SESSION['success'] = "You are now logged in";
@@ -80,7 +80,7 @@
    
    if(isset($_GET['logout'])){
 	   session_destroy();
-	   unset($SESSION['username']);
+	   
 	   header('location: login.php');
 	   
 	   

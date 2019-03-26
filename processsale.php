@@ -6,18 +6,18 @@ $db ='';
 
 $mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
 
-$id='';
+$sale_id='';
 $update = false;
-$userid ="";
+//$userid ="";
 $timestamp="";
-$cust_id="";
+$customer_id="";
 
 
 
 if(isset($_POST['save'])){
-	$userid = $_POST['userid'];
+	$userid = $_POST['sale_id'];
+	$customer_id = $_POST['customer_id'];
 	$timestamp = $_POST['timestamp'];
-	$cust_id = $_POST['cust_id'];
 	$username= $_SESSION["username"];
 	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
 	if(@count($result)==1)
@@ -27,7 +27,7 @@ if(isset($_POST['save'])){
 
 	}
 
-	$mysqli->query("INSERT INTO sale (userid,timestamp,cust_id) VALUES ('$userid','$timestamp','$cust_id')") or
+	$mysqli->query("INSERT INTO sale (userid,customer_id,timestamp) VALUES ('$userid','$customer_id','$timestamp')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -36,8 +36,8 @@ if(isset($_POST['save'])){
 	header("location:addsale.php");
 }
 if(isset($_GET['delete'])){
-	$id =$_GET['delete'];
-	$mysqli->query("DELETE FROM sale WHERE id=$id") or die($mysqli->error());
+	$sale_id =$_GET['delete'];
+	$mysqli->query("DELETE FROM sale WHERE sale_id=$sale_id") or die($mysqli->error());
 	
 	$_SESSION['message'] = "Record has been deleted!";
 	$_SESSION['msg_type'] = "danger";
@@ -47,24 +47,24 @@ if(isset($_GET['delete'])){
 	
 }
 if(isset($_GET['edit'])){
-	$id = $_GET['edit'];
+	$sale_id = $_GET['edit'];
 	$update =true;
-	$result = $mysqli->query("SELECT * FROM sale WHERE id=$id") or die($mysqli->error);
+	$result = $mysqli->query("SELECT * FROM sale WHERE sale_id=$sale_id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
 		$timestamp = $row['timestamp'];
-		$cust_id = $row['cust_id'];
+		$customer_id = $row['customer_id'];
 		
 		
 	}
 }
 if(isset($_POST['update'])){
-	$id = $_POST['id'];
+	$sale_id = $_POST['sale_id'];
 	$timestamp = $_POST['timestamp'];
-	$cust_id = $_POST['cust_id'];
+	$customer_id = $_POST['customer_id'];
 	
 	
-	$mysqli->query("UPDATE sale SET timestamp='$timestamp',cust_id='$cust_id' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE sale SET timestamp='$timestamp',customer_id='$customer_id' WHERE sale_id=$sale_id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

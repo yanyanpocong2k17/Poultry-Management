@@ -6,7 +6,7 @@ $db ='';
 
 $mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($mysqli));
 
-$id='';
+$customer_id='';
 $update = false;
 $userid ="";
 $lastname="";
@@ -33,7 +33,7 @@ if(isset($_POST['save'])){
 
 	}
 
-	$mysqli->query("INSERT INTO customer (userid,lastname,firstname,middlename,contactno,address) VALUES ('$userid','$lastname','$lastname','$middlename','$contactno','$address')") or
+	$mysqli->query("INSERT INTO customer (userid,lastname,firstname,middlename,contactno,address) VALUES ('$userid','$lastname','$firstname','$middlename','$contactno','$address')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -42,8 +42,8 @@ if(isset($_POST['save'])){
 	header("location:addcustomer.php");
 }
 if(isset($_GET['delete'])){
-	$id =$_GET['delete'];
-	$mysqli->query("DELETE FROM customer WHERE id=$id") or die($mysqli->error());
+	$customer_id =$_GET['delete'];
+	$mysqli->query("DELETE FROM customer WHERE customer_id=$customer_id") or die($mysqli->error());
 	
 	$_SESSION['message'] = "Record has been deleted!";
 	$_SESSION['msg_type'] = "danger";
@@ -53,9 +53,9 @@ if(isset($_GET['delete'])){
 	
 }
 if(isset($_GET['edit'])){
-	$id = $_GET['edit'];
+	$customer_id = $_GET['edit'];
 	$update =true;
-	$result = $mysqli->query("SELECT * FROM customer WHERE id=$id") or die($mysqli->error);
+	$result = $mysqli->query("SELECT * FROM customer WHERE customer_id=$customer_id") or die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
 		$lastname = $row['lastname'];
@@ -66,7 +66,7 @@ if(isset($_GET['edit'])){
 	}
 }
 if(isset($_POST['update'])){
-	$id = $_POST['id'];
+	$customer_id = $_POST['customer_id'];
 	$lastname = $_POST['lastname'];
 	$firstname = $_POST['firstname'];
 	$middlename = $_POST['middlename'];
@@ -74,7 +74,7 @@ if(isset($_POST['update'])){
 	$address = $_POST['address'];
 	
 	
-	$mysqli->query("UPDATE customer SET lastname='$lastname',firstname='$firstname',middlename='$middlename',contactno='$contactno',address='$address' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE customer SET userid='$userid',lastname='$lastname',firstname='$firstname',middlename='$middlename',contactno='$contactno',address='$address' WHERE customer_id=$customer_id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

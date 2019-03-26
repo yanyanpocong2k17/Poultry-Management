@@ -4,47 +4,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>poonbook</title>
+	<title>customer</title>
+		<link href="bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+        <script src="bootstrap-3.3.7/js/jquery.min.js"></script>
+        <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+        <link href="css/css/style.css" rel="stylesheet">
+		<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
 </head>
 <body>
-     <nav class="col-sm-8 text-right"> 	 
-         
-	     <?php if (isset($_SESSION['success'])): ?>
-		      
-		 <?php endif ?>
-		 
-		 <?php if(isset($_SESSION["username"])): ?>
-		     <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-		      <p><a href="index.php?logout='1'">Logout</a></p>
-		 <?php endif ?> 
-		</nav>
+     <br>
+    <nav class="navbar navbar-inverse col-sm-10 col-sm-offset-1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+			
+            </button>
+            <a class="navbar-brand" href="#">
+			
+                <span id="brand-title">ADD CUSTOMER</span>
+				
+             </a>
+			 
+        </div>
+		<ul class="nav navbar-nav navbar-right">
+      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+    </ul>
+		    </div>
+			
+</nav>	
+
+	<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		
+		<div class="col-sm-offset-2">	
+		<a href="addcustomer.php" class="next">&laquo; Back</a>
+		</div>
+		
+		
+	<div class="row">
 	<form action="processcustomer.php" method="POST">
-			<center><input type="hidden" name="id" value="<?php echo $id; ?>"><br>
-			<br><label>Last Name</label>
-			<br><input type="text" name="lastname" class="form-control" value="<?php echo $lastname;?>"placeholder="Enter the number of Breed" required>
-			<br><label>First Name</label>
-			<br><input type="text" name="firstname" class="form-control" value="<?php echo $firstname;?>"placeholder="Enter the number of rooster" required>
-			<br><label>Middle Name</label>
-			<br><input type="text" name="middlename" class="form-control" value="<?php echo $middlename;?>"placeholder="Enter the number of Breed" required>
-			<br><label>Contact No.</label>
-			<br><input type="number" name="contactno" class="form-control" value="<?php echo $contactno;?>"placeholder="Enter the number of rooster" required>
-			<br><label>Address</label>
-			<br><input type="text" name="address" class="form-control" value="<?php echo $address;?>"placeholder="Enter the number of rooster" required>
-			</center>
-		<center>
-		<br>
-		<div class="form-group">
+	<div style="text-align:center" class="col-sm-3 col-sm-offset-1">
+			</div>
+		<div class="col-sm-5">
+			<input type="hidden" name="customer_id" value="<?php echo $customer_id; ?>">
+			<div class="form-group">
+			<center><label>Last Name</center>
+			<input type="text" name="lastname" class="form-control" value="<?php echo $lastname;?>"placeholder="Enter the number of Breed" required>
+			</div>
+			<div class="form-group">
+			<center><label>First Name</center>
+			<input type="text" name="firstname" class="form-control" value="<?php echo $firstname;?>"placeholder="Enter the number of rooster" required>
+			</div>
+			<div class="form-group">
+			<center><label>Middle Name</center>
+			<input type="text" name="middlename" class="form-control" value="<?php echo $middlename;?>"placeholder="Enter the number of Breed" required>
+			</div>
+			<div class="form-group">
+			<center><label>Contact No.</center>
+			<input type="number" name="contactno" class="form-control" value="<?php echo $contactno;?>"placeholder="Enter the number of rooster" required>
+			</div>
+			<div class="form-group">
+			<center><label>Address</label></center>
+			<input type="text" name="address" class="form-control" value="<?php echo $address;?>"placeholder="Enter the number of rooster" required>
+			</div>
+		
 		<?php 
 			if($update==true):
 		?>
 		<button type="submit" class="btn" name="update">Update</button>
 		<a href="addsale.php"class="btn">back</a>
 		<?php else: ?>
-			<button type="submit" class="btn" name="save">save</button>
-			<a href="addsale.php"class="btn">back</a>
+		<div class="col-sm-offset-5">
+			<button type="submit" class="btn" name="save"><span class="glyphicon glyphicon-save">save</button>
+		</div>	
 		<?php endif;?>
-		</div>
-		</center>
 	</form>
+	</div>
+	<?php include('footer.php');?>
 </body>
 </html>

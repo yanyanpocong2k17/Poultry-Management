@@ -8,18 +8,18 @@ $mysqli = new mysqli('localhost','root','','registration') or die(mysqli_error($
 
 $id='';
 $update = false;
-$id ="";
 $type="";
 $timestamp="";
 $amout ="";
-$flocksid ="";
+
 
 if(isset($_POST['save'])){
 	$type = $_POST['type'];
 	$timestamp = $_POST['timestamp'];
 	$amout = $_POST['amout'];
-	$flocksid = $_POST['flocksid'];
+	$breed = $_POST['breed'];
 	$username= $_SESSION["username"];
+	$flocks = $_POST['flocksid'];
 	$result=$mysqli->query("select id from users where username='$username'") or die($mysqli->error);
 	if(@count($result)==1)
 	{
@@ -28,7 +28,7 @@ if(isset($_POST['save'])){
 
 	}
 
-	$mysqli->query("INSERT INTO medication (userid,type,timestamp,amout,flocksid) VALUES ('$userid','$type','$timestamp','$amout','$flocksid')") or
+	$mysqli->query("INSERT INTO medication (userid,flocksid,type,timestamp,amout) VALUES ($userid,$flocks,'$type','$timestamp','$amout')") or
 			die($mysqli->error);
 	$_SESSION['message'] = "Record has been saved!";
 	$_SESSION['msg_type'] = "success";
@@ -57,7 +57,6 @@ if(isset($_GET['edit'])){
 		$timestamp = $row['timestamp'];
 		$amout = $row['amout'];
 		$flocksid = $row['flocksid'];
-		
 	}
 }
 if(isset($_POST['update'])){
@@ -65,10 +64,9 @@ if(isset($_POST['update'])){
 	$type = $_POST['type'];
 	$timestamp = $_POST['timestamp'];
 	$amout = $_POST['amout'];
-	$flocksid = $_POST['flocksid'];
 	
 	
-	$mysqli->query("UPDATE medication SET type='$type',timestamp='$timestamp',amout='$amout',flocksid='$flocksid',id='$id' WHERE id=$id") or die($mysqli->error);
+	$mysqli->query("UPDATE medication SET type='$type',timestamp='$timestamp',amout='$amout',id='$id' WHERE id=$id") or die($mysqli->error);
 	$_SESSION['message'] = "Record has been updated!";
 	$_SESSION['msg_type'] = "warning";
 	

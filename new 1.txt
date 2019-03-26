@@ -1,0 +1,20 @@
+<center><label>Sale Id</label></center>
+		
+		<?php
+		
+			$sql = "SELECT * FROM `sale`";
+			$result = mysqli_query($mysqli, $sql);
+			
+		?>
+		<select name="sale_id" class="form-control">
+			<?php
+				$resultCheck = mysqli_num_rows($records);
+				while ($row = mysqli_fetch_array($result)) {
+			?>
+				
+			<option value="<?php echo $row['sale_id'];?>"><?php echo $row['sale_id'];?></option>
+				<?php
+					
+				}
+				?>
+		</select>

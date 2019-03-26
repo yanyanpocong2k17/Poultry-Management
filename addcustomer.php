@@ -4,30 +4,54 @@
 <html>
 <head>
 	<title>Add</title>
+		<link href="bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+        <script src="bootstrap-3.3.7/js/jquery.min.js"></script>
+        <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+        <link href="css/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="row">
-		<nav class="col-sm-8 text-right"> 	 
-			 <?php if (isset($_SESSION['success'])): ?>   
-			 <?php endif ?> 
-			 <?php if(isset($_SESSION["username"])): ?>
-			 <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-			 <a href="index.php?logout='1'">Logout</a>
-			 <?php endif ?>
-		</nav>
-	</div>		
+    <br>
+    <nav class="navbar navbar-inverse col-sm-10 col-sm-offset-1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+			
+            </button>
+            <a class="navbar-brand" href="#">
+			
+                <span id="brand-title">ADD CUSTOMER</span>
+				
+             </a>
+			 
+        </div>
+		<ul class="nav navbar-nav navbar-right">
+      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+    </ul>
+		    </div>
+			
+</nav>	
+
+	<br><br><br>
 	<?php require_once 'processcustomer.php';?>
 	
 	<?php
 	
 	if(isset($_SESSION['message'])):?>
-	
-	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+	<div class="col-sm-8 col-sm-offset-2">	
+	<center><div class="alert alert-<?=$_SESSION['msg_type']?>">
 	
 	<?php 
 		echo $_SESSION['message'];
 		unset($_SESSION['message']);
 	?>
+	</center>
+	</div>
 	</div>
 	<?php endif ?>
 	<?php
@@ -44,12 +68,25 @@
 		//pre_r($result);
 		
 		?>
-		<div class="row justify-content-center">
-		<br><br><br>
-			<table class="table">
-			
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		
+		<div class="col-sm-offset-2">	
+		<a href="index.php" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-home"></span> Home
+        </a>
+		</div>
+		<p>&nbsp;</p>
+		
+		<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">	
+				<div class="container-fluid">
+					
+			<table class="table table-condensed table-hover table-striped">
 				<thead>
 					<tr>
+						<th>#</th>
 						<th>Last Name</th>
 						<th>First Name</th>
 						<th>Middle Name</th>
@@ -63,21 +100,21 @@
 					while($row=$result->fetch_assoc()):?>
 					
 						<tr>
+							<td><?php echo $row['customer_id']?></td>
 							<td><?php echo $row['lastname']?></td>
 							<td><?php echo $row['firstname']?></td>
 							<td><?php echo $row['middlename']?></td>
 							<td><?php echo $row['contactno']?></td>
 							<td><?php echo $row['address']?></td>
 							<td>
-								<a href="editcustomer.php?edit=<?php echo $row['id'];?>"
-									class="btn">Edit</a>
-								<a href="processcustomer.php?delete=<?php echo $row['id'];?>"
-									class="btn btn-danger">Delete</a>
-									
+								<a href="editcustomer.php?edit=<?php echo $row['customer_id'];?>"><span class="glyphicon glyphicon-eye-open" title="View Profile"></span></a> |
+								<a href="processcustomer.php?delete=<?php echo $row['customer_id'];?>"><span class="glyphicon glyphicon-trash" title="Delete"></span></i></a>		
 							</td>
 						</tr>
 						<?php endwhile;?>
 			</table>
+		</div>
+		</div>
 		</div>
 		<?php
 		function pre_r($array){
@@ -87,8 +124,10 @@
 		}
 	
 	?>
-
-	<a href="editcustomer.php"class="btn">Add Customer</a>
-	<a href="index.php"class="btn">Back</a>
+	<div class="col-sm-offset-9">	
+	<button type="submit" class="btn"><span class="glyphicon glyphicon-folder-open"></span><a href="editsale.php"><a href="editcustomer.php"> Customer</a></button>
+	</div>
+	
+	<?php include('footer.php');?>
 </body>
 </html>
