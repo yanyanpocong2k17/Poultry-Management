@@ -82,6 +82,7 @@
 				<a href="addegss.php"> Add <span class="glyphicon glyphicon-eye-open"></span></a>
 			  </div>
 			<hr>
+			 <a href="">Reports         <span class="glyphicon glyphicon-eye-open"></span></a>
 			 <a href="index.php?logout='1'">Logout          <span class="glyphicon glyphicon-log-out"></span></a>
 		</div>
 <script>
