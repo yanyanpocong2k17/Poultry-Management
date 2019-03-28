@@ -111,6 +111,6 @@ a:hover {
 		<?php endif;?>
 	</form>
 	</div>
-	<?php include('footer.php');?>
+	
 </body>
 </html>
