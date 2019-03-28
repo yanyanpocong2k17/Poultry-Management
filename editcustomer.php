@@ -67,9 +67,6 @@ a:hover {
 	<p>&nbsp;</p>
 		<p>&nbsp;</p>
 		
-		<div class="col-sm-offset-2">	
-		
-		</div>
 		
 		
 	<div class="row">
