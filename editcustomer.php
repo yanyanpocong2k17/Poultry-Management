@@ -68,7 +68,7 @@ a:hover {
 		<p>&nbsp;</p>
 		
 		<div class="col-sm-offset-2">	
-		<a href="addcustomer.php" class="next">&laquo; Back</a>
+		
 		</div>
 		
 		
@@ -106,6 +106,7 @@ a:hover {
 		<a href="addsale.php"class="btn">back</a>
 		<?php else: ?>
 		<div class="col-sm-offset-5">
+			<a href="addcustomer.php" class="next">&laquo; Back</a>
 			<button type="submit" class="btn" name="save"><span class="glyphicon glyphicon-save">save</button>
 		</div>	
 		<?php endif;?>
