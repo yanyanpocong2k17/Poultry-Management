@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html>
@@ -467,6 +468,8 @@
 	
 </body>
 =======
+=======
+>>>>>>> changes 5
 
 <!DOCTYPE html>
 <html>
@@ -934,5 +937,8 @@
 	?>
 	
 </body>
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 </html>

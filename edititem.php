@@ -79,6 +79,7 @@ a:hover {
 		<div class="col-sm-5">
 			<input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<div class="form-group">
 			<center><label>Breed</center>
 			<select name="description" class="form-control" required>
@@ -95,6 +96,8 @@ a:hover {
 			<center><label>Unit</center>
 			<br><input type="number" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter the unit" required>
 =======
+=======
+>>>>>>> changes 5
 			<center><label>Description</center>
 			<select name="description" class="form-control">
   <option value="Chicken">Chicken</option>
@@ -106,7 +109,10 @@ a:hover {
 			<div class="form-group">
 			<center><label>Unit</center>
 			<br><input type="text" name="unit" class="form-control" value="<?php echo $unit;?>"placeholder="Enter the unit" required>
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 			</div>
 			<div class="form-group">
 			<center><label>Price</center>

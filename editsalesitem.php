@@ -17,33 +17,45 @@ a {
   padding: 8px 16px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 a:hover {
   background-color: #ddd;
   color: black;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 .previous {
   background-color: #f1f1f1;
   color: black;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 .next {
   background-color: #4CAF50;
   color: white;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 .round {
   border-radius: 50%;
 }
@@ -78,19 +90,26 @@ a:hover {
 
 		<p>&nbsp;</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> changes 5
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
 		<div class="col-sm-offset-2">	
 		<a href="salesitem.php" class="next">&laquo; Back</a>
 		</div>
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 		
 	<div class="row">
 	<form action="processsalesitem.php" method="POST">
 	<div style="text-align:center" class="col-sm-3 col-sm-offset-1">
 			</div>
 		<div class="col-sm-5">
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<center><label>Sale Id</label></center>
 		
@@ -102,6 +121,8 @@ a:hover {
 		?>
 		<select name="sale_id" class="form-control">
 =======
+=======
+>>>>>>> changes 5
 		<center><label>Item id</label></center>
 		<?php
 	
@@ -110,12 +131,16 @@ a:hover {
 			
 		?>
 		<select name="item_id" class="form-control">
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 			<?php
 				$resultCheck = mysqli_num_rows($records);
 				while ($row = mysqli_fetch_array($result)) {
 			?>
 				
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<option value="<?php echo $row['sale_id'];?>"><?php echo $row['sale_id'];?></option>
 				<?php
@@ -132,6 +157,8 @@ a:hover {
 		?>
 		<select name="item_id" class="form-control">
 =======
+=======
+>>>>>>> changes 5
 			<option value="<?php echo $row['item_id'];?>"><?php echo $row['description'];?></option>
 				<?php
 				}
@@ -147,22 +174,30 @@ a:hover {
 			
 		?>
 		<select name="customer_id" class="form-control">
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 			<?php
 				$resultCheck = mysqli_num_rows($records);
 				while ($row = mysqli_fetch_array($result)) {
 			?>
 				
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<option value="<?php echo $row['item_id'];?>"><?php echo $row['description'];?></option>
 =======
 			<option value="<?php echo $row['customer_id'];?>"><?php echo $row['lastname'];?></option>
 >>>>>>> changes 4
+=======
+			<option value="<?php echo $row['customer_id'];?>"><?php echo $row['lastname'];?></option>
+>>>>>>> changes 5
 				<?php
 				}
 				?>
 		</select>
 		
+<<<<<<< HEAD
 <<<<<<< HEAD
 		<center><label>Customer id</label></center>
 		
@@ -174,6 +209,8 @@ a:hover {
 		?>
 		<select name="customer_id" class="form-control">
 =======
+=======
+>>>>>>> changes 5
 			<input type="hidden" name="id" value="<?php echo $id; ?>">
 			<center><label>Quantity</label></center>
 			<input type="text" name="quantity" class="form-control" value="<?php echo $quantity;?>"placeholder="Enter the number of Breed" required>
@@ -186,21 +223,29 @@ a:hover {
 			
 		?>
 		<select name="price" class="form-control">
+<<<<<<< HEAD
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 			<?php
 				$resultCheck = mysqli_num_rows($records);
 				while ($row = mysqli_fetch_array($result)) {
 			?>
 				
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<option value="<?php echo $row['customer_id'];?>"><?php echo $row['lastname'];?></option>
 =======
 			<option value="<?php echo $row['price'];?>"><?php echo $row['price'];?></option>
 >>>>>>> changes 4
+=======
+			<option value="<?php echo $row['price'];?>"><?php echo $row['price'];?></option>
+>>>>>>> changes 5
 				<?php
 				}
 				?>
 		</select>
+<<<<<<< HEAD
 <<<<<<< HEAD
 		
 			<input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -212,6 +257,8 @@ a:hover {
 			<input type="number" name="price" class="form-control" value="<?php echo $price;?>"placeholder="Enter the number of rooster" required>
 =======
 >>>>>>> changes 4
+=======
+>>>>>>> changes 5
 			</center>
 			<br>
 		<?php 
@@ -222,6 +269,7 @@ a:hover {
 			
 		<?php else: ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<div class="col-sm-offset-4">
 			<a href="salesitem.php" class="next">&laquo; Back</a>
 			<button type="submit" class="btn" name="save"><span class="glyphicon glyphicon-save"></span>save</button>
@@ -230,6 +278,11 @@ a:hover {
 			
 			<button type="submit" class="btn" name="save"><span class="glyphicon glyphicon-save"></span>print</button>
 >>>>>>> changes 4
+=======
+		<div class="col-sm-offset-5">
+			
+			<button type="submit" class="btn" name="save"><span class="glyphicon glyphicon-save"></span>print</button>
+>>>>>>> changes 5
 			
 		</div>
 		<?php endif;?>
@@ -239,9 +292,13 @@ a:hover {
 	</form>
 	</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	
 >>>>>>> changes 4
+=======
+	
+>>>>>>> changes 5
 	<?php include('footer.php');?>
 </body>
 </html>
