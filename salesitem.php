@@ -1,5 +1,8 @@
 <?php include('processsalesitem.php');?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> changes 4
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,12 +94,21 @@
 				<thead>
 					<tr>
 						<th>#</th>
+<<<<<<< HEAD
 						<th>Date</th>
 						<th>Item id</th>
 						<th>Customer id</th>
 						<th>Date</th>
 						<th>Quantity</th>
 						<th>Price</th>
+=======
+						<th>Item id</th>
+						<th>Customer id</th>
+						<th>Timestamp</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+>>>>>>> changes 4
 						<th colspan="2">Action</th>
 					</tr>
 				</thead>
@@ -106,6 +118,7 @@
 					
 						<tr>
 							<td><?php echo $row['id']?></td>
+<<<<<<< HEAD
 							<td><?php echo $row['date']?></td>
 							<td><?php echo $row['item_id']?></td>
 							<td><?php echo $row['customer_id']?></td>
@@ -114,15 +127,35 @@
 							<td><?php echo $row['price']?></td>
 							<td>
 								<a href="editsalesitem.php?edit=<?php echo $row['id'];?>"><span class="glyphicon glyphicon-eye-open" title="View Profile"></span></a> |
+=======
+							<td><?php echo $row['item_id']?></td>
+							<td><?php echo $row['customer_id']?></td>
+							<td><?php echo $row['timestamp']?></td>
+							<td><?php echo $row['quantity']?></td>
+							<td><?php echo $row['price']?></td>
+							<td><?php echo $row['total']?></td>
+							<td>
+								
+>>>>>>> changes 4
 								<a href="processsalesitem.php?delete=<?php echo $row['id'];?>"><span class="glyphicon glyphicon-trash" title="Delete"></span></i></a>	
 									
 							</td>
 						</tr>
 						<?php endwhile;?>
+<<<<<<< HEAD
 			</table>
 			</div>
 			</div>
 			</div>
+=======
+					
+			</table>
+			
+			</div>
+			</div>
+			</div>
+				
+>>>>>>> changes 4
 		<?php
 		function pre_r($array){
 			echo'<pre>';
@@ -131,9 +164,19 @@
 		}
 	
 	?>	
+<<<<<<< HEAD
 	<div class="col-sm-offset-9">	
 	<button type="submit" class="btn"><span class="glyphicon glyphicon-folder-open"></span><a href="editsalesitem.php"> SalesItem</a></button>
 	</div>
+=======
+	
+	
+	<div class="col-sm-offset-9">	
+	<button type="submit" class="btn"><span class="glyphicon glyphicon-folder-open"></span><a href="editsalesitem.php"> SalesItem</a></button>
+	
+	</div>
+	
+>>>>>>> changes 4
 	<?php include('footer.php');?>
 </body>
 </html>
